@@ -1,5 +1,6 @@
 import express from "express";
 import dote from "dotenv";
+import connection from "./database/MySQL.js";
 
 dote.config({ path: ".env" });
 
@@ -9,6 +10,16 @@ app.use(express.json());
 
 app.listen(port, () => {
   console.log(`Server running on port ${port}`);
+});
+
+connection.connect((err) => {
+  if (err) {
+    console.error("Kết nối thất bại:", err.message);
+    return;
+  }
+  console.log("Kết nối MySQL thành công!");
+
+  connection.end();
 });
 
 // app.use("/api/user", userRouter);

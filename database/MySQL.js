@@ -1,10 +1,13 @@
 import mysql from "mysql2";
+import dote from "dotenv";
+
+dote.config({ path: ".env" });
 
 // Tạo kết nối
 const connection = mysql.createConnection({
-  host: "127.0.0.1",
-  user: "root",
-  password: "",
+  host: process.env.HOST,
+  user: process.env.USER,
+  password: process.env.PASSWORD,
   database: "java_coffee",
 });
 
