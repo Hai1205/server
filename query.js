@@ -1,4 +1,4 @@
-import connection from "./MySQL.js";
+import connection from "./database/MySQL.js";
 
 connection.connect((err) => {
   if (err) {
